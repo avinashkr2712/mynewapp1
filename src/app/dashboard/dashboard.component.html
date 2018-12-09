@@ -1,0 +1,55 @@
+  <div class=" padd20">
+      <div class="row">
+        <div class="col-md-2 offset-md-1">
+          <a (click)="getCustomers('users')">
+            <div class="card-counter primary">
+              <i class="fa fa-code-fork"></i>
+              <span class="count-name">Users</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-2">
+          <a (click)="getCustomers('userprofiles')">
+            <div class="card-counter danger">
+              <i class="fa fa-ticket"></i>
+              <span class="count-name">User Profiles</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-2">
+          <a (click)="getCustomers('securitymodels')">
+            <div class="card-counter success">
+              <i class="fa fa-database"></i>
+              <span class="count-name">Security Model</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-2">
+          <a (click)="getCustomers('roles')">
+            <div class="card-counter info">
+              <i class="fa fa-users"></i>
+              <span class="count-name">Roles</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-2">
+          <a (click)="getCustomers('permissions')">
+            <div class="card-counter primary">
+              <i class="fa fa-users"></i>
+              <span class="count-name">Permissions</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <app-customers *ngIf='users'></app-customers>
+    <app-profile *ngIf='userprofiles' ></app-profile>
+    <app-security *ngIf='securitymodels'></app-security>
+    <app-role *ngIf='roles'></app-role>
+    <app-permission *ngIf='permissions'></app-permission>

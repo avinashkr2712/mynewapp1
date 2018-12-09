@@ -1,0 +1,19 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="userProfiles?.length>0 && !isLoading">
+  <mat-expansion-panel *ngFor="let userProfile of userProfiles">
+    <mat-expansion-panel-header>
+      Profile Name: {{ userProfile.user_profile_name }}
+
+    </mat-expansion-panel-header>
+    <h6>Associated Roles</h6>
+    <p *ngFor="let role of userProfile.roles"> Role Name : {{ role.role_name }}</p>
+
+    <h6>Associated Security Models</h6>
+    <div *ngFor="let model of userProfile.security_model">
+       <p> Security Model Type : {{ model.security_model_type }}</p>
+       <p> Security Model Name : {{ model.security_model_name }}</p>
+     </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="userProfiles?.length==0 && !isLoading">No user profiles added yet!</p>

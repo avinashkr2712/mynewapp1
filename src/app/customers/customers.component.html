@@ -1,0 +1,16 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="users?.length>0 && !isLoading">
+  <button mat-button routerLink="/addCustomer">Add Users</button>
+  <mat-expansion-panel *ngFor="let user of users">
+    <mat-expansion-panel-header>
+      UserName: {{ user.firstName }}
+
+    </mat-expansion-panel-header>
+
+    <p> Last Name: {{ user.lastName }}</p>
+    <p>Email Id: {{ user.email }}</p>
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="users?.length==0 && !isLoading">No security added yet!</p>

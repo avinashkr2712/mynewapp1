@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+    
+  }
+  .padd20{
+    padding: 20px 22px;
+    margin-left: 6px;
+  }
+ .newUser {
+    float: right;
+    color: #ffffff !important;
+  }
+  

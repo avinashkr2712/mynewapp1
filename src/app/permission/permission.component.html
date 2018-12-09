@@ -1,0 +1,12 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="permissions?.length>0 && !isLoading">
+  <li>
+    <button mat-raised-button (click)="openDialog()">Add Permission</button>
+  </li>
+  <mat-expansion-panel *ngFor="let permissions of permissions">
+    <mat-expansion-panel-header>
+      Permission Name: {{ permissions.per_name }}
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="permissions?.length==0 && !isLoading">No Permissions added yet!</p>

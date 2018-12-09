@@ -1,0 +1,55 @@
+<!-- <button mat-raised-button (click)="isOptional = !isOptional">
+  {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+</button> -->
+<div class="ex-form">
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Step</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="User Name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <ng-template matStepLabel>Fill out your name</ng-template><br>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+          <input matInput placeholder="Phone No" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+        <mat-form-field>
+            <input matInput placeholder="Company Name" formControlName="firstCtrl" required>
+          </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Step</ng-template>
+      <mat-form-field>
+          <mat-select placeholder="Roles" [formControl]="toppings" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-select placeholder="Security Model" [formControl]="toppings" multiple>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.submit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+</div>

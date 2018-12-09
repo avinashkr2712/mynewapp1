@@ -15,11 +15,18 @@ export class  PermissionService{
   }
 
   addPermission(per_name: string) {
+    let httpHeaders = new HttpHeaders()
+     .set('Content-Type', 'application/json')
+     .set('Cache-Control', 'no-cache');
+     let options = {
+      headers: httpHeaders
+     };
     const obj = { "per_name": per_name };
     const myJSON = JSON.stringify(obj);
     return this.httpClient.post(
         PERMISSION_URL+'create',
-        myJSON
+        myJSON,
+        options
       );
   }
 }
